@@ -49,6 +49,7 @@ class AdapterLecturer(
             val alb = AlertDialog.Builder(context)
             val nidn = holder.tvNIDN!!.text
             val nama = holder.tvNmDosen!!.text
+            val progstd = holder.tvNmProgstd!!.text
             with(alb) {
                 setTitle("Konfirmasi Penghapusan")
                 setCancelable(false)
@@ -56,7 +57,7 @@ class AdapterLecturer(
                     Apakah Anda yakin akan menghapus data ini?
                     
                     $nama 
-                    [$nidn]
+                    [$nidn-$progstd]
                 """.trimIndent())
                 setPositiveButton("Ya") { _, _ ->
                     if (db.hapus("$nidn"))
